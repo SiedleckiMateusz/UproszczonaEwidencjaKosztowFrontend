@@ -15,33 +15,6 @@
               <option value="2025">2025</option>
               <option value="2026">2026</option>
             </select>
-<!--            <div class="btn-group" role="group">-->
-<!--              <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-<!--                Rok-->
-<!--              </button>-->
-<!--              <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">-->
-<!--                  <div class="dropdown-item">-->
-<!--                    <input type="checkbox" id="all" name="all" value="all">-->
-<!--                    <label for="all"> Wszystkie</label><br>-->
-<!--                  </div>-->
-<!--                  <div class="dropdown-item">-->
-<!--                    <input type="checkbox" id="2021" name="2021" value="2021">-->
-<!--                    <label for="2021"> 2021</label><br>-->
-<!--                  </div>-->
-<!--                  <div class="dropdown-item">-->
-<!--                    <input type="checkbox" id="2022" name="2022" value="2022">-->
-<!--                    <label for="2022"> 2022</label><br>-->
-<!--                  </div>-->
-<!--                  <div class="dropdown-item">-->
-<!--                    <input type="checkbox" id="2023" name="2023" value="2023">-->
-<!--                    <label for="2023"> 2023</label><br>-->
-<!--                  </div>-->
-<!--                  <div class="dropdown-item">-->
-<!--                    <input type="checkbox" id="2024" name="2024" value="2024">-->
-<!--                    <label for="2024"> 2024</label><br>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--            </div>-->
           </div>
           <div class="col-md-6">
             <label for="month">Miesiąc: </label>
@@ -78,40 +51,28 @@
   </div>
   <div class="row" id="tabela">
     <div class="col">
-      <table class="table">
-        <thead>
-        <tr>
-          <th scope="col">Data</th>
-          <th scope="col">Cena</th>
-          <th scope="col">Kwota narastająco miesięcznie</th>
-          <th scope="col">Kwota narastająco od początku roku</th>
-          <th scope="col">Info</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td>01-03-2022</td>
-          <td>30zł</td>
-          <td>30zł</td>
-          <td>30zł</td>
-          <td>brak</td>
-        </tr>
-        <tr>
-          <td>01-05-2022</td>
-          <td>90zł</td>
-          <td>90zł</td>
-          <td>120zł</td>
-          <td>brak</td>
-        </tr>
-        <tr>
-          <td>01-06-2022</td>
-          <td>60zł</td>
-          <td>60zł</td>
-          <td>180zł</td>
-          <td>brak</td>
-        </tr>
-        </tbody>
-      </table>
+<!--      <div class="table-responsive">-->
+        <table class="table table-sm table-striped table-hover">
+          <thead>
+          <tr>
+            <th scope="col">Data</th>
+            <th scope="col">Cena</th>
+            <th scope="col">Miesięczny przyrost</th>
+            <th scope="col">Całkowity przyrost</th>
+            <th scope="col">Info</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr (click)="onSelect(przychod)" *ngFor="let przychod of przychodyList">
+            <td>{{przychod.data}}</td>
+            <td>{{przychod.kwota}} zł</td>
+            <td>{{przychod.kwotaNarastajacoMiesiecznie}} zł</td>
+            <td>{{przychod.kwotaNarastajacoOdPoczatku}} zł</td>
+            <td>{{przychod.info}}</td>
+          </tr>
+          </tbody>
+        </table>
+<!--      </div>-->
     </div>
   </div>
 </div>

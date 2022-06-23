@@ -3,10 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import {PrzychodListComponent} from "./przychod-list/przychod-list.component";
 import {KosztListComponent} from "./koszt-list/koszt-list.component";
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { PrzychodSzczegolyComponent } from './przychod-szczegoly/przychod-szczegoly.component';
 
 const routes: Routes = [
   {path:'',redirectTo: '/departments', pathMatch: 'full'},
   {path:'przychody',component:PrzychodListComponent},
+  {path:'przychody/:id',component:PrzychodSzczegolyComponent},
   {path:'koszty',component:KosztListComponent},
   {path: "**",component:PageNotFoundComponent}
 ];
@@ -16,4 +18,9 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [PrzychodListComponent,KosztListComponent,PageNotFoundComponent]
+export const routingComponents = [
+  PrzychodListComponent,
+  KosztListComponent,
+  PageNotFoundComponent,
+  PrzychodSzczegolyComponent
+]
