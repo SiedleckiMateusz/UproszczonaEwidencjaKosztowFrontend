@@ -7,7 +7,7 @@ import {DaneDoTabeli} from "./dto/daneDoTabeli";
   providedIn: 'root'
 })
 export class PrzychodyService {
-  private mainURL = 'https://ewidencja-nat.herokuapp.com/';
+  private mainURL = 'https://ewidencja-nat.herokuapp.com';
   private pobierzDaneDoTabeliURL = '/przychod/pobierzDaneDoTabeli';
 
   constructor(private http: HttpClient) { }
