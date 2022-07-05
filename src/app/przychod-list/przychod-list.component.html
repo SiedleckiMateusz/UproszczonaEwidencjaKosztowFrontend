@@ -43,15 +43,14 @@
       <table class="table table-bordered">
         <tr>
           <th scope="row">Podsumowanie</th>
-          <td>Przychód: 160 zł</td>
-          <td>Średnio dziennie: 43zł</td>
+          <td>Przychód: {{daneDoTabeli.przychodCalkowity}} zł</td>
+          <td>Średnio dziennie: {{daneDoTabeli.sredniaDziennie}} zł</td>
         </tr>
       </table>
     </div>
   </div>
   <div class="row" id="tabela">
     <div class="col">
-<!--      <div class="table-responsive">-->
         <table class="table table-sm table-striped table-hover">
           <thead>
           <tr>
@@ -59,20 +58,17 @@
             <th scope="col">Cena</th>
             <th scope="col">Miesięczny przyrost</th>
             <th scope="col">Całkowity przyrost</th>
-            <th scope="col">Info</th>
           </tr>
           </thead>
           <tbody>
-          <tr (click)="onSelect(przychod)" *ngFor="let przychod of przychodyList">
+          <tr (click)="onSelect(przychod)" *ngFor="let przychod of daneDoTabeli.przychodyDoTabeliList">
             <td>{{przychod.data}}</td>
             <td>{{przychod.kwota}} zł</td>
             <td>{{przychod.kwotaNarastajacoMiesiecznie}} zł</td>
             <td>{{przychod.kwotaNarastajacoOdPoczatku}} zł</td>
-            <td>{{przychod.info}}</td>
           </tr>
           </tbody>
         </table>
-<!--      </div>-->
     </div>
   </div>
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, ParamMap} from "@angular/router";
 
 @Component({
   selector: 'app-przychod-szczegoly',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./przychod-szczegoly.component.css']
 })
 export class PrzychodSzczegolyComponent implements OnInit {
-
-  constructor() { }
+ public przychodId: any;
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe((params:ParamMap) =>{
+      this.przychodId = params.get('id');
+    });
   }
 
 }

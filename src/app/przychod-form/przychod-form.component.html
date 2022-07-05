@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <label class="col-form-label" for="price">Kwota</label>
+      <input id="price" type="number" [(ngModel)]="przychodDoZapisu.kwota">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <label for="dataDodania">Data</label>
+      <input id="dataDodania" type="date" [(ngModel)]="przychodDoZapisu.data">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <label for="opis">Opis</label>
+      <textarea id="opis" [(ngModel)]="przychodDoZapisu.opis"></textarea>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <button (click)="zapisz()">Zapisz</button>
+    </div>
+  </div>
+</div>

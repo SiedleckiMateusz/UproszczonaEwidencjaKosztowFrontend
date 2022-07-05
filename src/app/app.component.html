@@ -1,17 +1,22 @@
 <div class="container">
   <div class="row">
-    <h1>Uproszczona ewidencja przychodow!</h1>
-  </div>
-  <div class="row">
-    <div class="col-md-6">
-      <button routerLink="/przychody" routerLinkActive="active" class="btn btn-primary btn-block m-1">Przychody</button>
-    </div>
-    <div class="col-md-6">
-      <button routerLink="/koszty" routerLinkActive="active" class="btn btn-primary btn-block m-1">Koszty</button>
-    </div>
-  </div>
-  <div class="row">
     <div class="col">
+      <h3>Uproszczona ewidencja przychodów i kosztów!</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <button routerLink="/przychody-list" routerLinkActive="active" class="btn btn-primary btn-block m-1">Lista przychodów</button>
+    </div>
+    <div class="col-md-6">
+      <button routerLink="/przychody-form" routerLinkActive="active" class="btn btn-primary btn-block m-1">Dodaj przychód</button>
+    </div>
+<!--    <div class="col-md-6">-->
+<!--      <button routerLink="/koszty" routerLinkActive="active" class="btn btn-primary btn-block m-1">Koszty</button>-->
+<!--    </div>-->
+  </div>
+  <div class="row">
+    <div class="col bg-light">
       <router-outlet></router-outlet>
     </div>
   </div>
