@@ -1,5 +1,5 @@
 export interface PrzychodDoZapisu {
-   kwota: number;
-   data: Date;
-   opis: String;
+   price: String;
+   date: String;
+   info: String;
 }

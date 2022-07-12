@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {PrzychodDoZapisu} from "../dto/przychodDoZapisu";
 import {DatePipe} from "@angular/common";
+import {PrzychodyService} from "../przychody.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-przychod-form',
@@ -10,25 +12,29 @@ import {DatePipe} from "@angular/common";
 export class PrzychodFormComponent implements OnInit {
   public przychodDoZapisu:PrzychodDoZapisu;
 
-  constructor(public datepipe: DatePipe) {
+  constructor(public datepipe: DatePipe, private przychodService: PrzychodyService, private router:Router) {
     this.przychodDoZapisu = {
-      data: new Date(),
-      kwota: 0,
-      opis: ''
-    }
+      date: new Date().toISOString().slice(0, 10),
+      price: '',
+      info: ''
+    };
   }
 
   ngOnInit(): void {
-    console.log("Próbuję ustawić datę");
-    console.log(document.getElementById("dataDodania"));
-    document.getElementById("dataDodania")!.setAttribute("value","2014-01-01");
   }
 
   zapisz() {
     console.log(this.przychodDoZapisu);
+    console.log("Result");
+    this.przychodService.savePrzychod(this.przychodDoZapisu).subscribe(data=>console.log(data))
+    this.przychodDoZapisu = {
+      date: new Date().toISOString().slice(0, 10),
+      price: '',
+      info: ''
+    };
   }
 
-  stringDate() {
-    return this.datepipe.transform(this.przychodDoZapisu.data,'dd.MM.yyyy');
-  }
+  // stringDate() {
+  //   return this.datepipe.transform(this.przychodDoZapisu.data,'dd.MM.yyyy');
+  // }
 }

@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {PrzychodyService} from "../przychody.service";
-import {Przychod} from "../dto/przychod";
 import {DaneDoTabeli} from "../dto/daneDoTabeli";
 
 @Component({
@@ -11,6 +10,9 @@ import {DaneDoTabeli} from "../dto/daneDoTabeli";
 })
 export class PrzychodListComponent implements OnInit {
 
+  aktualnyMiesiac = new Date().getMonth()+1;
+  aktualnyRok = new Date().getFullYear();
+
   public daneDoTabeli: DaneDoTabeli = {przychodyDoTabeliList: [],przychodCalkowity:0,sredniaDziennie:0};
 
   constructor(private router: Router,
@@ -19,7 +21,9 @@ export class PrzychodListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.przychodyService.getPrzychody().subscribe(data => this.daneDoTabeli = data);
+    //todo dostosować przyciski do przekazywanych parametrów
+    //todo ustawić na start bieżący miesiąc
+    this.przychodyService.getPrzychody('','').subscribe(data => this.daneDoTabeli = data);
   }
 
   onSelect(przychod: any) {
