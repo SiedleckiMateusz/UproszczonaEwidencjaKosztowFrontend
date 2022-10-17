@@ -9,8 +9,8 @@ import {PrzychodDoZapisu} from "./dto/przychodDoZapisu";
   providedIn: 'root'
 })
 export class PrzychodyService {
-  private pobierzDaneDoTabeliURL = '/przychod/pobierzDaneDoTabeli';
-  private savePrzychodURL = '/przychod';
+  private przychodURL = environment.apiUrl+"/przychod";
+  private pobierzDaneDoTabeliURL = '/pobierzDaneDoTabeli';
 
   constructor(private http: HttpClient) { }
 
@@ -19,10 +19,14 @@ export class PrzychodyService {
       miesiac: miesiac,
       rok: rok
     };
-    return this.http.get<DaneDoTabeli>(environment.apiUrl+this.pobierzDaneDoTabeliURL,{params: data});
+    return this.http.get<DaneDoTabeli>(this.przychodURL+this.pobierzDaneDoTabeliURL,{params: data});
   }
 
   savePrzychod(przychod: PrzychodDoZapisu): Observable<PrzychodDoZapisu>{
-    return this.http.post<PrzychodDoZapisu>(environment.apiUrl+this.savePrzychodURL,przychod);
+    return this.http.post<PrzychodDoZapisu>(this.przychodURL,przychod);
+  }
+
+  deletePrzychod(id: number) {
+    return this.http.delete(this.przychodURL+"/"+id);
   }
 }

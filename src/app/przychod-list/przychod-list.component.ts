@@ -18,7 +18,7 @@ export class PrzychodListComponent implements OnInit {
   constructor(private router: Router,
               private activatedRouter: ActivatedRoute,
               private przychodyService:PrzychodyService
-  ) { }
+  ){}
 
   ngOnInit(): void {
     //todo dostosować przyciski do przekazywanych parametrów
@@ -30,4 +30,11 @@ export class PrzychodListComponent implements OnInit {
     this.router.navigate([przychod.id], {relativeTo: this.activatedRouter});
   }
 
+  usun(id: number) {
+    if (confirm("Na pewno chcesz usunąć ten wpis?")){
+      this.przychodyService.deletePrzychod(id).subscribe(
+        data=>
+          this.daneDoTabeli.przychodyDoTabeliList = this.daneDoTabeli.przychodyDoTabeliList.filter(item=>item.id !== id));
+    }
+  }
 }

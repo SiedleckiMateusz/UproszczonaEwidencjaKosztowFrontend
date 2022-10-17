@@ -58,14 +58,16 @@
             <th scope="col">Cena</th>
             <th scope="col">Miesięczny przyrost</th>
             <th scope="col">Całkowity przyrost</th>
+            <th scope="col">Usuń</th>
           </tr>
           </thead>
           <tbody>
-          <tr (click)="onSelect(przychod)" *ngFor="let przychod of daneDoTabeli.przychodyDoTabeliList">
+          <tr *ngFor="let przychod of daneDoTabeli.przychodyDoTabeliList">
             <td>{{przychod.data}}</td>
             <td>{{przychod.kwota}} zł</td>
             <td>{{przychod.kwotaNarastajacoMiesiecznie}} zł</td>
             <td>{{przychod.kwotaNarastajacoOdPoczatku}} zł</td>
+            <td><button class="btn btn-danger" (click)="usun(przychod.id)">USUŃ</button></td>
           </tr>
           </tbody>
         </table>
